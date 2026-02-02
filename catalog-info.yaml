@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: nodejs-vbusxucd-gitops
+  description: This is GitOps manifest for nodejs-vbusxucd   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=nodejs-vbusxucd
+    backstage.io/kubernetes-id: nodejs-vbusxucd 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: nodejs-vbusxucd
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:nodejs-vbusxucd

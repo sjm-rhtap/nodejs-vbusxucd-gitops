@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: nodejs-vbusxucd
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nodejs-vbusxucd 
+  name: nodejs-vbusxucd
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: nodejs-vbusxucd
+    weight: 100 
